@@ -419,7 +419,7 @@ export const Timeline: React.FC<TimelineProps> = ({
                 return (
                   <div
                     key={`frame-${i}`}
-                    className="absolute top-0 w-px h-3 bg-timeline-ruler/20"
+                    className="absolute top-0 w-px h-3 bg-amber-300"
                     style={{ left: `${framePos}px` }}
                   />
                 );
@@ -433,11 +433,11 @@ export const Timeline: React.FC<TimelineProps> = ({
               {overlays.map((overlay) => (
                 <React.Fragment key={`snap-${overlay.id}`}>
                   <div
-                    className="absolute top-0 w-px h-full bg-accent-yellow/50"
+                    className="absolute top-0 w-px h-full bg-amber-300/50"
                     style={{ left: `${timeToPixels(overlay.startTime)}px` }}
                   />
                   <div
-                    className="absolute top-0 w-px h-full bg-accent-yellow/50"
+                    className="absolute top-0 w-px h-full bg-amber-300/50"
                     style={{
                       left: `${timeToPixels(
                         overlay.startTime + overlay.duration
@@ -457,8 +457,8 @@ export const Timeline: React.FC<TimelineProps> = ({
               className="absolute top-0 w-0.5 h-full bg-blue-400 shadow-glow-timeline z-30 pointer-events-none"
               style={{ left: `${playheadPosition}px` }}
             >
-              <div className="absolute -top-2 -left-3 w-6 h-6 bg-timeline-playhead clip-path-diamond shadow-lg" />
-              <div className="absolute -bottom-0 left-0 w-0.5 h-2 bg-timeline-playhead" />
+              <div className="absolute -top-2 -left-3 w-6 h-6 bg-gray-600 rounded-sm shadow-lg" />
+              <div className="absolute -bottom-0 left-0 w-0.5 h-2 bg-gray-600" />
             </div>
           )}
 
