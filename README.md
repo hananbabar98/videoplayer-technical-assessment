@@ -1,73 +1,88 @@
-# React + TypeScript + Vite
+# Video Timeline Editor
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is my submission for the **Video Timeline Editor Technical Assessment**.  
+It’s a browser-based video editing tool with timeline scrubbing, text overlays, and preview export.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+### 📹 Video Player
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+- Upload local MP4/WebM/MOV.
+- Responsive player with loading states.
+- Play, pause, seek, volume, mute.
 
-## Expanding the ESLint configuration
+### Text Overlays
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Add overlays at current time.
+- Edit text, color, font size, and position.
+- Move & resize overlays directly on the timeline.
+- Live rendering on video.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Timeline
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Draggable **playhead/scrubber** synced with playback.
+- Zoom in/out with mouse wheel or buttons.
+- Keyboard shortcuts for play/pause, seek, home/end.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Export
+
+- Export current video frame + overlays as PNG.
+- Demonstrates “burning in” overlays for video export.
+
+---
+
+## Tech Stack
+
+- React 18 + TypeScript
+- Vite
+- Tailwind CSS
+- Lucide React (icons)
+- Canvas API for export
+- Custom hooks: `useVideoPlayer`, `useTimeline`, `useTextOverlays`
+
+---
+
+## Project Structure
+
+```
+src/
+  components/
+    VideoPlayer.tsx
+    Timeline.tsx
+    ControlPanel.tsx
+    VideoEditor.tsx
+  hooks/
+    useVideoPlayer.ts
+    useTimeline.ts
+    useTextOverlays.ts
+  types/
+    video.ts
+  utils/
+    timeFormat.ts
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/hananbabar98/videoplayer-technical-assessment.git
+cd videoplayer-technical-assessment
+npm install
+npm run dev
 ```
+
+---
+
+## Demo
+
+👉 [Loom Video Link](https://www.loom.com/share/6768af258895487aaa6fc1893b53a1a1?sid=f8688bc2-b539-4b54-94eb-e69a01ae1483)
+
+---
+
+## Author
+
+**Hanan Babar**  
+Technical Assessment Submission
